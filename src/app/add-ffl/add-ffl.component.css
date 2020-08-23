@@ -1,0 +1,19 @@
+input {
+    margin: 20px;
+    background-color: antiquewhite;
+    /* max-width: fit-content; */
+}
+
+#inputState {
+    width: fill;
+    display: block;
+    margin: 0 auto;
+    margin: 20px;
+}
+
+#inputCity {
+    /* max-width: 200px; */
+}
+#premiseCity {
+    align-items: center;
+}

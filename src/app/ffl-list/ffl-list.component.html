@@ -1,0 +1,19 @@
+<div style="padding: 5px; padding-bottom: 10px;">
+    Enter your zip code: <input type="number" [(ngModel)]="zip">
+    Mile radius: <input type="number" [(ngModel)]="radius">
+</div>
+<div>
+    <button style="margin: 10px;" (click)="searchZip()">View Locations</button>
+</div>
+
+<table>
+    <tr>
+      <th id="color">License number</th>
+      <th>License name</th>
+      <th id="color">Business name</th>
+      <th>Premise street</th>
+      <th id="color">Premise city</th>
+      <th>Premise state</th>
+      <th id="color">Premise zip code</th>
+    </tr>
+    </table>
