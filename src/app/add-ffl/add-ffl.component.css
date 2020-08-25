@@ -1,19 +1,18 @@
 input {
     margin: 20px;
-    background-color: antiquewhite;
+    background-color: rgb(197, 197, 197);
+    border: 1px solid black;
     /* max-width: fit-content; */
 }
 
-#inputState {
-    width: fill;
-    display: block;
-    margin: 0 auto;
-    margin: 20px;
-}
+.success {
+    background-color: #ddffdd;
+    border-left: 6px solid #4CAF50;
+    margin-bottom: 15px;
+    padding: 4px 12px;
+    text-align: center;
+  }
 
-#inputCity {
-    /* max-width: 200px; */
-}
-#premiseCity {
-    align-items: center;
-}
+  .form-control {
+    width: 200px;
+  }

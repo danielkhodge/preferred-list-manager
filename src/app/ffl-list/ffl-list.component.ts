@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FflListComponent implements OnInit {
 
-  zip: number = 84401;
-  radius: number = 100;
+  zip;
+  radius;
 
   public searchZip() {
     this.resultsList(this.zip, this.radius);

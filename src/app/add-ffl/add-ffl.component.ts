@@ -7,21 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddFflComponent implements OnInit {
 
-  licenceNumber;
-  licenceName;
-  businessName;
-  premiseStreet;
-  premiseCity;
-  premiseState;
-  premiseZip;
+  shortLicence;
 
   public submitFfl() {
     // tslint:disable-next-line: max-line-length
-    this.addFfl(this.licenceNumber, this.licenceName, this.businessName, this.premiseStreet, this.premiseCity, this.premiseState, this.premiseZip)
+    this.addFfl(this.shortLicence);
   }
 
-  public addFfl(licenceNumber, licenceName, businessName, premiseStreet, premiseCity, premiseState, premiseZip) {
-    console.log({licenceNumber, licenceName, businessName, premiseStreet, premiseCity, premiseState, premiseZip});
+  public addFfl(shortLicence) {
+    console.log({shortLicence});
+
+  }
+
+  public clearForm() {
+    
   }
 
   constructor() { }

@@ -1,6 +1,12 @@
 <div style="padding: 5px; padding-bottom: 10px;">
     Enter your zip code: <input type="number" [(ngModel)]="zip">
-    Mile radius: <input type="number" [(ngModel)]="radius">
+    Mile radius: <select type="number" [(ngModel)]="radius">
+        <option>5</option>
+        <option>10</option>
+        <option>25</option>
+        <option>50</option>
+        <option>100</option>
+    </select>
 </div>
 <div>
     <button style="margin: 10px;" (click)="searchZip()">View Locations</button>
