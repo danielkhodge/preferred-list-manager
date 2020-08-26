@@ -1,25 +1,32 @@
-<div style="padding: 5px; padding-bottom: 10px;">
-    Enter your zip code: <input type="number" [(ngModel)]="zip">
-    Mile radius: <select type="number" [(ngModel)]="radius">
-        <option>5</option>
-        <option>10</option>
-        <option>25</option>
-        <option>50</option>
-        <option>100</option>
+<form name="listFFLsForm">
+  <div style="padding: 5px; padding-bottom: 10px;">
+    Enter your zip code:
+    <input type="double" [(ngModel)]="zip" placeholder="Ex: 84401" name="zip"/> Mile
+    radius:
+    <select type="double" selected="5" [(ngModel)]="radius" placeholder="1-100" name="radius">
+      <option>1</option>
+      <option>5</option>
+      <option>10</option>
+      <option>25</option>
+      <option>50</option>
+      <option>100</option>
     </select>
-</div>
-<div>
-    <button style="margin: 10px;" (click)="searchZip()">View Locations</button>
-</div>
+  </div>
+  <div>
+    <button style="margin: 10px;" (click)="search()">View Locations</button>
+  </div>
 
-<table>
-    <tr>
-      <th id="color">License number</th>
-      <th>License name</th>
-      <th id="color">Business name</th>
-      <th>Premise street</th>
-      <th id="color">Premise city</th>
-      <th>Premise state</th>
-      <th id="color">Premise zip code</th>
+  <table *ngIf="arrFfls && arrFfls.length > 0">
+    <tr *ngFor="let ffl of arrFfls">
+      <td id="color">{{ffl.license_number}}</td>
+      <td>{{ffl.license_name}}</td>
+      <td id="color">{{ffl.business_name}}</td>
+      <td>{{ffl.premise_street}}</td>
+      <td id="color">{{ffl.premise_city}}</td>
+      <td>{{ffl.premise_state}}</td>
+      <td id="color">{{ffl.premise_zip_code}}</td>
+      <td>{{ffl.voice_phone}}</td>
+      <td><button class="btn btn-primary" (click)= "removeFfl(ffl.license_number)">Remove</button></td>
     </tr>
-    </table>
+  </table>
+</form>

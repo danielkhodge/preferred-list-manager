@@ -1,0 +1,26 @@
+ [
+    {
+        "license_number": "9-87-057-07-2E-02049",
+        "license_name": "HODGE ENTERPRISES LLC",
+        "business_name": "TACOP SHOP",
+        "premise_street": "4111 S 4550 W",
+        "premise_city": "WEST HAVEN",
+        "premise_state": "UT",
+        "premise_zip_code": "84401",
+        "lat": "41.18906680",
+        "lng": "-112.08960110",
+        "voice_phone": "8019804862"
+    },
+	{
+        "license_number": "1-66-003-01-1F-00258",
+        "license_name": "HERNANDEZ-MUNOZ, GILBERTO",
+        "business_name": "ARMERIA Y ACCESORIOS EL NARANJAL",
+        "premise_street": "CARR 411 KM 1.0 BO GUAYABO SECTOR BAJURA",
+        "premise_city": "AGUADA",
+        "premise_state": "PR",
+        "premise_zip_code": "00602",
+        "lat": "18.37939130",
+        "lng": "-67.18823650",
+        "voice_phone": "7878680125"
+    }
+]

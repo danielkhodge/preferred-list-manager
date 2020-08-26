@@ -1,5 +1,5 @@
 input {
-    margin: 20px;
+    /* margin: 20px; */
     background-color: rgb(197, 197, 197);
     border: 1px solid black;
     /* max-width: fit-content; */
@@ -13,6 +13,10 @@ input {
     text-align: center;
   }
 
-  .form-control {
-    width: 200px;
+  .form-group {
+      margin-top: 20px;
+  }
+
+  #shortLicence {
+      align-items: left;
   }

@@ -1,0 +1,8 @@
+{
+  "/api/getCustomDealerList": {
+    "target": "https://sandbox-app.fflapi.com/v1/getCustomDealerList",
+    "secure": true,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

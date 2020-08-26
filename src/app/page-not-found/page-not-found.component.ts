@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageNotFoundComponent implements OnInit {
 
+  error = 'An error occurred.';
+
   constructor() { }
 
   ngOnInit() {
