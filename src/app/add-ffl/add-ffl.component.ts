@@ -19,14 +19,18 @@ export class AddFflComponent implements OnInit {
     this.addFfl(this.shortLicence);
   }
 
-  public addFfl(shortLicence) {
-    console.log({shortLicence});
-    console.log(this.http);
-
-    const endPoints = '/posts';
-    this.http.post(this.url + endPoints, shortLicence).subscribe(data => {
-    console.log(data);
-  });
+  public addFfl(shortLicense) {
+    // call delete web service
+    let params = new URLSearchParams();
+    params.set("shortLicense", shortLicense);
+    this.http.post('/ffls', {search: params}).subscribe(
+      data => {
+        this.arrFfls = data as string[];
+      },
+      (er: HttpErrorResponse) => {
+        console.log("MESSAGE: " + er);
+      }
+    );
   }
 
   public clearForm() {

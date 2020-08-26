@@ -24,11 +24,18 @@ export class FflListComponent implements OnInit {
     return data;
   }
 
-  public removeFfl(name: string) {
-    if (confirm('Are you sure to delete ' + name)) {
-      console.log('Implement delete functionality here');
+  public removeFfl(shortLicense: string) {
+    if (confirm('Are you sure to delete ' + shortLicense)) {
       // call delete web service
-      
+      this.http.delete('/ffls/' + shortLicense).subscribe(
+        data => {
+          this.arrFfls = data as string[];
+        },
+        (er: HttpErrorResponse) => {
+          console.log("MESSAGE: " + er);
+        }
+      );
+
       // call load web service using current zip and radius
       //this.search_MOCK();
       this.search();
@@ -38,52 +45,27 @@ export class FflListComponent implements OnInit {
   public search() {
     console.log(this.zip, this.radius);
 
-    const httpOptions = {
-      headers: new HttpHeaders({
-        "X-Authorization": "v0uzRDwsEhfYRsx19Nmx9tFaNwQP7UetkC0iVdRVzyMnK7PLvDiUknnMW0DLP4ol5f36b419419b7"
-      })
-    };
-
-    const formData = new FormData();
-    formData.append('zipcode', this.zip);
-    formData.append('radius', this.radius);
-
-    
     // this.http.post('https://sandbox-app.fflapi.com/v1/getCustomDealerList', formData, httpOptions).subscribe(
-    this.http.post('/api/getCustomDealerList', formData, httpOptions).subscribe(
+    this.http.get('/ffls/' + this.zip).subscribe(
       data => {
         this.arrFfls = data as string[];
       },
       (er: HttpErrorResponse) => {
         console.log("MESSAGE: " + er);
-        // console.log("First Record: " + this.arrFfls[1]);
       }
     );
-    // this.getFfls()
-    //   .subscribe(
-    //     {
-    //       next(position) {
-    //         console.log('Current Position: ', position);
-    //       },
-    //       error(msg) {
-    //         console.log('Error Getting Location: ', msg);
-    //       },
-    //       complete() {
-    //         console.log('Data Complete!');
-    //       }
-    //     });
   }
   
-  public search_MOCK() {
-    this.http.get('./../../assets/data/ffl-list-test.json').subscribe(
-      data => {
-        this.arrFfls = data as string [];
-      },
-      (er: HttpErrorResponse) => {
-        console.log(this.arrFfls[1]);
-      }
-    );
-  }
+  // public search_MOCK() {
+  //   this.http.get('./../../assets/data/ffl-list-test.json').subscribe(
+  //     data => {
+  //       this.arrFfls = data as string [];
+  //     },
+  //     (er: HttpErrorResponse) => {
+  //       console.log(this.arrFfls[1]);
+  //     }
+  //   );
+  // }
 
   ngOnInit() {
     //this.search_MOCK();
