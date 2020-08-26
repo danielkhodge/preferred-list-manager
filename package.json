@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start_alternative": "ng serve",
-    "start": "ng serve --proxy-config proxy.conf.json",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -29,7 +28,7 @@
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "^10.0.0",
-    "@angular-devkit/build-angular": "~0.803.22",
+    "@angular-devkit/build-angular": "^0.803.29",
     "@angular/cli": "~8.3.22",
     "@angular/compiler-cli": "~8.2.14",
     "@angular/language-service": "~8.2.14",
