@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-sm-12">
     <h4>Short Licence</h4>
-  <label for="ffl-list">Search ffl license number: </label>
+  <label for="ffl-list">Enter ffl license number: </label>
   <form>
     <input type="string" class="form-control" id="shortLicence" [(ngModel)]="shortLicence" name="shortLicence" placeholder="1-23-4567"/>
     <br/>
@@ -22,9 +22,8 @@
       <h4>Batch Upload</h4>
 		<label for="ffl-list">Choose ffl list file: </label>
 		
-		<form action="/ffl/upload" method="POST" enctype="multipart/form-data">
+		<form ngNoForm action="/ffl/upload" method="POST" enctype="multipart/form-data">
 			<input class="form-control" style="height: 44px;" type="file" id="ffl-list" name="ffl-list"accept="text/csv">
-			<br/>
 			<button style="margin: 15px; margin-left: 0%;" class="btn btn-primary" type="submit">Upload FFL List</button>
 		</form>
     </div>

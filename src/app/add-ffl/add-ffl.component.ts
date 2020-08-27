@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpBackend, HttpClient, HttpErrorResponse, HttpRequest } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-add-ffl',
