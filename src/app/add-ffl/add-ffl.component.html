@@ -1,32 +1,71 @@
-    <form name="newFFLForm">
-        <div class="form-row">
-          <div class="form-group col-sm-2.5">
-            <label id="shortLicence"><h4>Short Licence</h4></label>
-          </div>
-          <div class="form-group col-sm-2.5">
-            <input type="string" class="form-control" id="shortLicence" [(ngModel)]="shortLicence" name="shortLicence" placeholder="1-23-4567">
-          </div>
-            
-          
-          <div class="form-group col-sm-1">
-            <button (click)="clearForm()" type="submit" class="btn btn-primary">Clear</button>
-          </div>
+<form name="newFFLForm">
+  <div class="form-row">
+    <div class="form-group col-sm-2.5">
+      <label id="shortLicence"><h4>Short Licence</h4></label>
+    </div>
+    <div class="form-group col-sm-2.5">
+      <input
+        type="string"
+        class="form-control"
+        id="shortLicence"
+        [(ngModel)]="shortLicence"
+        name="shortLicence"
+        placeholder="1-23-4567"
+      />
+    </div>
 
+    <div class="form-group col-sm-1">
+      <button (click)="clearForm()" type="submit" class="btn btn-primary">
+        Clear
+      </button>
+    </div>
 
-          <div class="form-group col-sm-1">
-            <button (click)="submitFfl()" type="submit" class="btn btn-primary">Add FFL</button>
-          </div>
+    <div class="form-group col-sm-1">
+      <button (click)="submitFfl()" type="submit" class="btn btn-primary">
+        Add FFL
+      </button>
+    </div>
 
-          <div class="form-group col-sm-5"></div>
-
-        </div>
-        <!-- <div class="row">
-          <div class="col-sm-6">
-            <button (click)="submitFfl()" type="submit" class="btn btn-primary">Add FFL</button>
-            <div class="success">
-              <p><strong>Success!</strong> Some text...</p>
-            </div>
-          </div>
-          <div class="col-sm-6"></div>
-        </div> -->
-      </form>
+    <div class="form-group col-sm-5"></div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-6">
+      <head>
+        <meta charset="utf-8" />
+        <title>PreferredListManager</title>
+        <base href="/" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="stylesheet" href="styles.2a9b604645ab948c033c.css" />
+      </head>
+      <body>
+        <app-root></app-root>
+        <script
+          src="runtime-es2015.cdfb0ddb511f65fdc0a0.js"
+          type="module"
+        ></script>
+        <script
+          src="runtime-es5.cdfb0ddb511f65fdc0a0.js"
+          nomodule
+          defer
+        ></script>
+        <script
+          src="polyfills-es5.0290b245fbcca09184ac.js"
+          nomodule
+          defer
+        ></script>
+        <script
+          src="polyfills-es2015.ffa9bb4e015925544f91.js"
+          type="module"
+        ></script>
+        <script
+          src="main-es2015.30a4a9cea47c3c624c26.js"
+          type="module"
+        ></script>
+        <script src="main-es5.30a4a9cea47c3c624c26.js" nomodule defer></script>
+      </body>
+    </div>
+    <div class="col-sm-6"></div>
+  </div>
+</form>
