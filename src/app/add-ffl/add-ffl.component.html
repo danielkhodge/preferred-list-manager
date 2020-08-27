@@ -31,40 +31,14 @@
   
   <div class="row">
     <div class="col-sm-6">
-      <head>
-        <meta charset="utf-8" />
-        <title>PreferredListManager</title>
-        <base href="/" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" type="image/x-icon" href="favicon.ico" />
-        <link rel="stylesheet" href="styles.2a9b604645ab948c033c.css" />
-      </head>
-      <body>
-        <app-root></app-root>
-        <script
-          src="runtime-es2015.cdfb0ddb511f65fdc0a0.js"
-          type="module"
-        ></script>
-        <script
-          src="runtime-es5.cdfb0ddb511f65fdc0a0.js"
-          nomodule
-          defer
-        ></script>
-        <script
-          src="polyfills-es5.0290b245fbcca09184ac.js"
-          nomodule
-          defer
-        ></script>
-        <script
-          src="polyfills-es2015.ffa9bb4e015925544f91.js"
-          type="module"
-        ></script>
-        <script
-          src="main-es2015.30a4a9cea47c3c624c26.js"
-          type="module"
-        ></script>
-        <script src="main-es5.30a4a9cea47c3c624c26.js" nomodule defer></script>
-      </body>
+      <h1>Batch Upload</h1>
+		<label for="ffl-list">Choose ffl list file: </label>
+		
+		<form action="/ffl/upload" method="POST" enctype="multipart/form-data">
+			<input type="file" id="ffl-list" name="ffl-list"accept="text/csv">
+			<br/>
+			<button type="submit">Upload FFL List</button>
+		</form>
     </div>
     <div class="col-sm-6"></div>
   </div>
