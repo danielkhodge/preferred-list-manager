@@ -1,45 +1,32 @@
 <form name="newFFLForm">
-  <div class="form-row">
-    <div class="form-group col-sm-2.5">
-      <label id="shortLicence"><h4>Short Licence</h4></label>
-    </div>
-    <div class="form-group col-sm-2.5">
-      <input
-        type="string"
-        class="form-control"
-        id="shortLicence"
-        [(ngModel)]="shortLicence"
-        name="shortLicence"
-        placeholder="1-23-4567"
-      />
-    </div>
 
-    <div class="form-group col-sm-1">
-      <button (click)="clearForm()" type="submit" class="btn btn-primary">
-        Clear
-      </button>
-    </div>
-
-    <div class="form-group col-sm-1">
-      <button (click)="submitFfl()" type="submit" class="btn btn-primary">
-        Add FFL
-      </button>
-    </div>
-
-    <div class="form-group col-sm-5"></div>
+<div class="row">
+  <div class="col-sm-12">
+    <h4>Short Licence</h4>
+  <label for="ffl-list">Search ffl license number: </label>
+  <form>
+    <input type="string" class="form-control" id="shortLicence" [(ngModel)]="shortLicence" name="shortLicence" placeholder="1-23-4567"/>
+    <br/>
+    <button (click)="clearForm()" type="submit" class="btn btn-primary" style="margin-right: 5px;">
+      Clear
+    </button>
+    <button (click)="submitFfl()" type="submit" class="btn btn-primary" style="margin-left: 5px;">
+      Add FFL
+    </button>
+  </form>
   </div>
-  
+</div>
+
   <div class="row">
-    <div class="col-sm-6">
-      <h1>Batch Upload</h1>
+    <div class="col-sm-12">
+      <h4>Batch Upload</h4>
 		<label for="ffl-list">Choose ffl list file: </label>
 		
 		<form action="/ffl/upload" method="POST" enctype="multipart/form-data">
-			<input type="file" id="ffl-list" name="ffl-list"accept="text/csv">
+			<input class="form-control" style="height: 44px;" type="file" id="ffl-list" name="ffl-list"accept="text/csv">
 			<br/>
-			<button type="submit">Upload FFL List</button>
+			<button style="margin: 15px; margin-left: 0%;" class="btn btn-primary" type="submit">Upload FFL List</button>
 		</form>
     </div>
-    <div class="col-sm-6"></div>
   </div>
 </form>
