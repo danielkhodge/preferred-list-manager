@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpBackend, HttpClient, HttpRequest } from '@angular/common/http';
+import { HttpBackend, HttpClient, HttpErrorResponse, HttpRequest } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-ffl',
@@ -25,7 +25,7 @@ export class AddFflComponent implements OnInit {
     params.set("shortLicense", shortLicense);
     this.http.post('/ffls', {search: params}).subscribe(
       data => {
-        this.arrFfls = data as string[];
+        var arrFfls = data as string[];
       },
       (er: HttpErrorResponse) => {
         console.log("MESSAGE: " + er);
