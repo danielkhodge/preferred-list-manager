@@ -1,8 +1,14 @@
-#color {
-    margin: 10px;
-    background-color: rgb(233, 233, 221);
-}
+.operation {
+    border: 5px solid black;
+    border-radius: 10px;
+    margin: 15px;
+    padding: 15px;
+  }
 
-td {
-    padding: 10px;
+  input {
+    /* margin: 20px; */
+    background-color: rgb(197, 197, 197);
+    border: 1px solid black;
+    border-radius: 3px;
+    /* max-width: fit-content; */
 }

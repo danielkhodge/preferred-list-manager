@@ -12,7 +12,7 @@ export class FflListComponent implements OnInit {
 
   name = 'Ffl';
   zip;
-  radius = "5";
+  radius = '5';
 
   constructor(private http: HttpClient) {}
   arrFfls: string [];
@@ -25,7 +25,7 @@ export class FflListComponent implements OnInit {
           this.arrFfls = data as string[];
         },
         (er: HttpErrorResponse) => {
-          console.log("MESSAGE: " + er);
+          console.log('MESSAGE: ' + er);
         }
       );
 
@@ -34,18 +34,29 @@ export class FflListComponent implements OnInit {
     }
   }
 
+  // public search() {
+  //   console.log(this.zip, this.radius);
+  //   this.http.get('/ffls/').subscribe(
+  //     data => {
+  //       this.arrFfls = data as string[];
+  //     },
+  //     (er: HttpErrorResponse) => {
+  //       console.log('MESSAGE: ' + er);
+  //     }
+  //   );
+  // }
+
   public search() {
     console.log(this.zip, this.radius);
-    this.http.get('/ffls/' + this.zip).subscribe(
+    this.http.get('../../assets/data/ffl-list-test.json').subscribe(
       data => {
         this.arrFfls = data as string[];
       },
       (er: HttpErrorResponse) => {
-        console.log("MESSAGE: " + er);
+        console.log('MESSAGE: ' + er);
       }
     );
   }
-  
 
   ngOnInit() {
   }
