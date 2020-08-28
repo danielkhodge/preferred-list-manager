@@ -34,29 +34,29 @@ export class FflListComponent implements OnInit {
     }
   }
 
-  // public search() {
-  //   console.log(this.zip, this.radius);
-  //   this.http.get('/ffls/').subscribe(
-  //     data => {
-  //       this.arrFfls = data as string[];
-  //     },
-  //     (er: HttpErrorResponse) => {
-  //       console.log('MESSAGE: ' + er);
-  //     }
-  //   );
-  // }
+   public search() {
+     console.log(this.zip, this.radius);
+     this.http.get('/ffls').subscribe(
+       data => {
+         this.arrFfls = data as string[];
+       },
+       (er: HttpErrorResponse) => {
+         console.log('MESSAGE: ' + er);
+       }
+     );
+   }
 
-  public search() {
-    console.log(this.zip, this.radius);
-    this.http.get('../../assets/data/ffl-list-test.json').subscribe(
-      data => {
-        this.arrFfls = data as string[];
-      },
-      (er: HttpErrorResponse) => {
-        console.log('MESSAGE: ' + er);
-      }
-    );
-  }
+//  public search() {
+//    console.log(this.zip, this.radius);
+//    this.http.get('../../assets/data/ffl-list-test.json').subscribe(
+//      data => {
+//        this.arrFfls = data as string[];
+//      },
+//      (er: HttpErrorResponse) => {
+//        console.log('MESSAGE: ' + er);
+//      }
+//    );
+//  }
 
   ngOnInit() {
   }
