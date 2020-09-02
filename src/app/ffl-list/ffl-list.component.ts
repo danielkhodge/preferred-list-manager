@@ -1,26 +1,32 @@
 import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+
+enum Operation {
+  ALL,
+  BY_ZIP
+}
 
 @Component({
   selector: 'app-ffl-list',
   templateUrl: './ffl-list.component.html',
   styleUrls: ['./ffl-list.component.css']
 })
+
 export class FflListComponent implements OnInit {
-
   name = 'Ffl';
-  zip;
+  zip = '';
   radius = '5';
-
-  constructor(private http: HttpClient) {}
+  retrieveOperation = Operation.ALL;
   arrFfls: string [];
 
+  constructor(private http: HttpClient) {}
+  
   public removeFfl(shortLicense: string) {
     if (confirm('Are you sure to delete ' + shortLicense)) {
       // call delete web service
-      this.http.delete('/ffls/' + shortLicense).subscribe(
+      this.http.delete('/ffls/' + shortLicense + "/remove").subscribe(
         data => {
           this.arrFfls = data as string[];
         },
@@ -28,14 +34,10 @@ export class FflListComponent implements OnInit {
           console.log('MESSAGE: ' + er);
         }
       );
-
-      // call load web service using current zip and radius
-      this.search();
     }
   }
 
-   public search() {
-     console.log(this.zip, this.radius);
+   public findAll() {
      this.http.get('/ffls').subscribe(
        data => {
          this.arrFfls = data as string[];
@@ -44,6 +46,23 @@ export class FflListComponent implements OnInit {
          console.log('MESSAGE: ' + er);
        }
      );
+     this.retrieveOperation = Operation.ALL;
+   }
+
+   public search() {
+     console.log(this.zip, this.radius);
+	let params = new HttpParams();
+    params = params.append('zipCode', this.zip);
+    params = params.append('radius', this.radius);
+     this.http.get('/ffls', {params: params}).subscribe(
+       data => {
+         this.arrFfls = data as string[];
+       },
+       (er: HttpErrorResponse) => {
+         console.log('MESSAGE: ' + er);
+       }
+     );
+     this.retrieveOperation = Operation.BY_ZIP;
    }
 
 //  public search() {
