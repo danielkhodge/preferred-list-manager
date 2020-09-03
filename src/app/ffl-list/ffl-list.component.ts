@@ -29,6 +29,14 @@ export class FflListComponent implements OnInit {
       this.http.delete('/ffls/' + shortLicense + "/remove").subscribe(
         data => {
           this.arrFfls = data as string[];
+          console.log(this.retrieveOperation);
+          if (this.retrieveOperation == Operation.ALL) {
+              console.log('find-all');
+              this.findAll();
+          } else {
+            console.log('find-by-zip');
+            this.search();
+          }
         },
         (er: HttpErrorResponse) => {
           console.log('MESSAGE: ' + er);
