@@ -2,6 +2,8 @@ import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+import { AlertService } from '../_alert';
+
 
 enum Operation {
   ALL,
@@ -21,7 +23,8 @@ export class FflListComponent implements OnInit {
   retrieveOperation = Operation.ALL;
   arrFfls: string [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+              protected alertService: AlertService) {}
   
   public removeFfl(shortLicense: string) {
     if (confirm('Are you sure to delete ' + shortLicense)) {

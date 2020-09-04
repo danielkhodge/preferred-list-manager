@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertService } from '../_alert';
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  pageTitle: 'To be determined';
+  pageTitle: 'FFL Manager';
 
-  constructor() { }
+  constructor(protected alertService: AlertService) { }
 
   ngOnInit() {
   }

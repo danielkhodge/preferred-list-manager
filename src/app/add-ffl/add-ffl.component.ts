@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpBackend, HttpClient, HttpErrorResponse, HttpRequest, HttpParams, HttpHeaders } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { AlertService } from '../_alert';
 
 @Component({
   selector: 'app-add-ffl',
@@ -12,7 +13,8 @@ export class AddFflComponent implements OnInit {
   shortLicence;
   url = 'https://sandbox-app.fflapi.com/v1/addDealerToCustomList';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    protected alertService: AlertService) { }
 
 
   public submitFfl() {
