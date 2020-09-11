@@ -18,7 +18,7 @@
   </div>
   
 <h1>Angular 8 Alerts</h1>
-<button class="btn btn-success m-1" (click)="alertService.success('Success!!', options)">Success</button>
+<!-- <button class="btn btn-success m-1" (click)="alertService.success('Success!!', options)">Success</button>
 <button class="btn btn-danger m-1" (click)="alertService.error('Error :(', options)">Error</button>
 <button class="btn btn-info m-1" (click)="alertService.info('Some info....', options)">Info</button>
 <button class="btn btn-warning m-1" (click)="alertService.warn('Warning: ...', options)">Warn</button>
@@ -32,4 +32,16 @@
         <input type="checkbox" name="keepAfterRouteChange" id="keepAfterRouteChange" class="form-check-input" [(ngModel)]="options.keepAfterRouteChange">
         <label for="keepAfterRouteChange">Keep displaying after one route change</label>
     </div>
+</div> -->
+
+<div>
+  <button class="btn btn-success m-1" (click)="FadeOut()">Submit</button>
+</div>
+
+<div  *ngIf="!hideMessage">
+  <div class="col-12">
+    <p class="alert alert-success">
+        <strong [ngClass] ="FadeOut()" >Submitted</strong>                 
+    </p>
+  </div>
 </div>

@@ -9,8 +9,15 @@ import { AlertService } from '../_alert';
 export class HomePageComponent implements OnInit {
 
   pageTitle: 'FFL Manager';
+  hideMessage = false;
 
   constructor(protected alertService: AlertService) { }
+
+  FadeOut() {
+    setTimeout( () => {
+      this.hideMessage = true;
+    }, 3000);
+}
 
   ngOnInit() {
   }
