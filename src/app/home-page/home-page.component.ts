@@ -14,14 +14,10 @@ export class HomePageComponent implements OnInit {
   constructor(protected alertService: AlertService) { }
 
   FadeOut() {
-    this.setTimeOut();
-    console.log('This button works');
-  }
-
-  setTimeOut() {
     setTimeout( () => {
       this.hideMessage = true;
     }, 3000);
+    console.log('This button works');
   }
 
   ngOnInit() {

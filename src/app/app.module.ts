@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import { AlertServiceComponent } from './alert-service/alert-service.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     AddFflComponent,
     AboutComponent,
     PageNotFoundComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    AlertServiceComponent
   ],
   imports: [
     BrowserModule,
