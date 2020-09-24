@@ -12,3 +12,6 @@
     border-radius: 3px;
     /* max-width: fit-content; */
 }
+.space-left {
+	margin-left:12px;
+}
