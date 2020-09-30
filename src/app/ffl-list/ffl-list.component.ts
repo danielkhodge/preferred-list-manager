@@ -3,7 +3,12 @@ import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular
 import { Observable } from 'rxjs';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 
-declare function myerror(msg):any;
+declare function errorMessage(msg):any;
+declare function successMessage(msg):any;
+declare function infoMessage(msg):any;
+declare function warningMessage(msg):any;
+declare function alertMessage(msg):any;
+declare function infoProgressMessage(msg, _timeout):any;
 
 enum Operation {
   ALL,
@@ -26,18 +31,14 @@ export class FflListComponent implements OnInit {
   constructor(private http: HttpClient) {}
   
   public removeFfl(shortLicense: string) {
-    console.log("calling myerror");
-	myerror("test");
-	console.log("Just called myerror");
 	if (confirm('Are you sure to delete ' + shortLicense)) {
       // call delete web service
       this.http.delete('/ffls/' + shortLicense + "/remove").subscribe(
         data => {
           this.arrFfls = data as string[];
-          console.log("Data...I guess.");
+		  errorMessage('Delete failed: ' + shortLicense);
         },
         (er: HttpErrorResponse) => {
-          console.log('MESSAGE: ' + er);
 		  console.log(this.retrieveOperation);
           if (this.retrieveOperation == Operation.ALL) {
               console.log('find-all');
@@ -46,12 +47,14 @@ export class FflListComponent implements OnInit {
             console.log('find-by-zip');
             this.search();
           }
+		  successMessage(shortLicense + ' deleted!');
         }
       );
     }
   }
 
    public findAll() {
+	 infoProgressMessage("Data loading full list...", 2000);
      this.http.get('/ffls').subscribe(
        data => {
          this.arrFfls = data as string[];
@@ -68,28 +71,18 @@ export class FflListComponent implements OnInit {
 	let params = new HttpParams();
     params = params.append('zipCode', this.zip);
     params = params.append('radius', this.radius);
+	infoProgressMessage("Data loading...", 1000);
      this.http.get('/ffls', {params: params}).subscribe(
        data => {
-         this.arrFfls = data as string[];
+		  this.arrFfls = data as string[];		 
        },
        (er: HttpErrorResponse) => {
          console.log('MESSAGE: ' + er);
+		 errorMessage("Please provide a valid ZIP Code.");
        }
      );
      this.retrieveOperation = Operation.BY_ZIP;
    }
-
-//  public search() {
-//    console.log(this.zip, this.radius);
-//    this.http.get('../../assets/data/ffl-list-test.json').subscribe(
-//      data => {
-//        this.arrFfls = data as string[];
-//      },
-//      (er: HttpErrorResponse) => {
-//        console.log('MESSAGE: ' + er);
-//      }
-//    );
-//  }
 
   ngOnInit() {
   }

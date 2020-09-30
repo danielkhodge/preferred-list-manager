@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { HttpBackend, HttpClient, HttpErrorResponse, HttpRequest, HttpParams, HttpHeaders } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+declare function errorMessage(msg):any;
+declare function successMessage(msg):any;
+declare function infoMessage(msg):any;
+declare function warningMessage(msg):any;
+declare function alertMessage(msg):any;
+
 @Component({
   selector: 'app-add-ffl',
   templateUrl: './add-ffl.component.html',
@@ -10,7 +16,6 @@ import { FormsModule } from '@angular/forms';
 export class AddFflComponent implements OnInit {
 
   shortLicence;
-  url = 'https://sandbox-app.fflapi.com/v1/addDealerToCustomList';
 
   constructor(private http: HttpClient) { }
 
@@ -28,10 +33,11 @@ export class AddFflComponent implements OnInit {
     
     this.http.post('/ffls/' + shortLicense + '/add', httpOptions).subscribe(
         data => {
-          var arrFfls = data as string[]; 
+          var arrFfls = data as string[];
         },
         (er: HttpErrorResponse) => {
           console.log('MESSAGE: ' + er);
+          successMessage(shortLicense + ' added!');
         }
       );
   }
@@ -39,21 +45,6 @@ export class AddFflComponent implements OnInit {
   public clearForm() {
     this.shortLicence = '';
   }
-
-//   // upload() {
-//   //   let inputEl: HTMLInputElement = this.inputEl.nativeElement;
-//   //   let fileCount: number = inputEl.files.length;
-//   //   let formData = new FormData();
-//   //   if (fileCount > 0) { // a file was selected
-//   //       for (let i = 0; i < fileCount; i++) {
-//   //           formData.append('file[]', inputEl.files.item(i));
-//   //       }
-//   //       this.http
-//   //           .post('http://your.upload.url', formData)
-//   //           // do whatever you do...
-//   //           // subscribe to observable to listen for response
-//     }
-// }
 
   ngOnInit() {
   }
