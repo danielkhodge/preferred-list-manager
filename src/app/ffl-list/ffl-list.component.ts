@@ -3,6 +3,8 @@ import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular
 import { Observable } from 'rxjs';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 
+declare function myerror(msg):any;
+
 enum Operation {
   ALL,
   BY_ZIP
@@ -24,7 +26,9 @@ export class FflListComponent implements OnInit {
   constructor(private http: HttpClient) {}
   
   public removeFfl(shortLicense: string) {
-    if (confirm('Are you sure to delete ' + shortLicense)) {
+    myerror("test");
+console.log("Just called myerror");
+	if (confirm('Are you sure to delete ' + shortLicense)) {
       // call delete web service
       this.http.delete('/ffls/' + shortLicense + "/remove").subscribe(
         data => {
