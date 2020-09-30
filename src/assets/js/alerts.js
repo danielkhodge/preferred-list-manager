@@ -1,5 +1,5 @@
 function myerror(msg) {
-  $(".messages").html("this is a test");
+	new Noty({text: 'mytext'}).show();
 }
 
 function confirmation() {

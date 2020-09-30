@@ -26,8 +26,9 @@ export class FflListComponent implements OnInit {
   constructor(private http: HttpClient) {}
   
   public removeFfl(shortLicense: string) {
-    myerror("test");
-console.log("Just called myerror");
+    console.log("calling myerror");
+	myerror("test");
+	console.log("Just called myerror");
 	if (confirm('Are you sure to delete ' + shortLicense)) {
       // call delete web service
       this.http.delete('/ffls/' + shortLicense + "/remove").subscribe(
